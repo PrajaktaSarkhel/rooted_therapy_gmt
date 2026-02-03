@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
-import BotanicalDecor from '@/components/BotanicalDecor';
+import { BotanicalDecor } from "@/components/BotanicalDecor";
 import "./globals.css";
 
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
@@ -20,16 +20,26 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         
         {/* The Softer Hue Background */}
         <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-          <div className="absolute inset-0 bg-[#FFFEFA]" />
+          <div className="absolute inset-0 bg-[#f6f6ae]" />
           {/* Soft Green Wash */}
-          <div className="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vw] bg-[#E8F3D6] rounded-full blur-[120px] opacity-60" />
+          <div className="absolute top-[-10%] left-[-5%] w-[60vw] h-[60vw] bg-[#cfe8c7] rounded-full blur-[120px] opacity-60" />
           {/* Soft Pink Wash */}
-          <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-[#FFEDF0] rounded-full blur-[100px] opacity-70" />
+          <div className="absolute top-[20%] right-[-10%] w-[50vw] h-[50vw] bg-[#fec1cc] rounded-full blur-[100px] opacity-70" />
           {/* Soft Yellow Wash */}
-          <div className="absolute bottom-[-5%] left-[10%] w-[70vw] h-[70vw] bg-[#FFF9DE] rounded-full blur-[150px] opacity-80" />
+          <div className="absolute bottom-[-5%] left-[10%] w-[70vw] h-[70vw] bg-[#d8fcff] rounded-full blur-[150px] opacity-80" />
         </div>
 
-        {children}
+        <div className="fixed inset-0 -z-20 opacity-40" 
+             style={{ background: `linear-gradient(135deg, #FDFCF0 0%, #FFF0F5 35%, #F0F9F4 70%)` }} 
+        />
+        
+        {/* Add the decor here - it has z-0 and pointer-events-none */}
+        <BotanicalDecor />
+
+        {/* Your content stays in z-10 so it's always "above" the leaves */}
+        <main className="relative z-10">
+          {children}
+        </main>
       </body>
     </html>
   );

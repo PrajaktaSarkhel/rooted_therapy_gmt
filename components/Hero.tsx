@@ -35,9 +35,9 @@ export default function Hero() {
             helping you navigate life's complexities with resilience and grace.
           </p>
 
-          <button className="px-10 py-4 bg-[#1A1C18] text-white hover:bg-[#3A3D39] transition-all duration-300 rounded-full uppercase tracking-widest text-[10px] font-bold shadow-xl active:scale-95">
-            Begin Your Journey
-          </button>
+          <button className="px-10 py-4 bg-[#1A1C18] text-white rounded-full uppercase tracking-widest text-[10px] font-bold shadow-xl active:scale-95 transition-all duration-500 hover:bg-[#1A1C18] hover:shadow-[0_0_30px_5px_rgba(58,90,64,0.4)] hover:-translate-y-1">
+            Begin Your Journey →
+            </button>
         </div>
 
       </div> 

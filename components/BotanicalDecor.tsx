@@ -1,18 +1,53 @@
-// components/BotanicalDecor.tsx
+"use client";
 
-// MUST HAVE "export default"
-export default function BotanicalDecor() {
+export const BotanicalDecor = () => {
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden z-0">
-      {/* Top Left Leaf */}
-      <svg className="absolute top-[-2%] left-[-5%] w-72 h-72 text-[#1A1C18]/10 rotate-12" viewBox="0 0 200 200">
-        <path fill="none" stroke="currentColor" strokeWidth="0.8" d="M30,170 Q10,130 50,90 Q90,50 160,30 M80,110 Q120,80 150,30" />
+      
+      {/* Top Left: Abstract Zen Ripple */}
+      <svg 
+        viewBox="0 0 400 400" 
+        className="absolute top-[-10%] left-[-5%] w-[500px] h-[500px] text-[#3A5A40]/10"
+      >
+        <path 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="0.5" 
+          d="M0,100 Q100,50 200,100 T400,100 M0,120 Q100,70 200,120 T400,120 M0,140 Q100,90 200,140 T400,140" 
+        />
       </svg>
 
-      {/* Mid Right Leaf */}
-      <svg className="absolute top-[35%] right-[-10%] w-[500px] h-[500px] text-[#1A1C18]/5 -rotate-[40deg]" viewBox="0 0 200 200">
-        <path fill="none" stroke="currentColor" strokeWidth="0.5" d="M20,180 Q60,160 100,100 Q140,40 180,20" />
+      {/* Mid Right: The "Organic Pebble" (Sap Green) */}
+      <div className="absolute top-[30%] right-[-2%] w-64 h-80 bg-[#3A5A40]/5 rounded-[40%_60%_70%_30%/50%_40%_60%_50%] blur-2xl rotate-12" />
+
+      {/* Center Left: Modern Single Stroke Stem */}
+      <svg 
+        viewBox="0 0 100 200" 
+        className="absolute top-[45%] left-[2%] w-32 h-64 text-[#3A5A40]/20"
+      >
+        <path 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="1" 
+          strokeLinecap="round"
+          d="M20,180 C20,100 80,100 80,20" 
+        />
+        <circle cx="80" cy="20" r="1.5" fill="currentColor" />
       </svg>
+
+      {/* Bottom Right: Flowing Abstract Line */}
+      <svg 
+        viewBox="0 0 400 200" 
+        className="absolute bottom-[10%] right-[-5%] w-[600px] opacity-10 text-[#3A5A40]"
+      >
+        <path 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="0.5" 
+          d="M400,50 C300,50 250,150 150,150 C50,150 0,50 0,50" 
+        />
+      </svg>
+
     </div>
   );
-}
+};

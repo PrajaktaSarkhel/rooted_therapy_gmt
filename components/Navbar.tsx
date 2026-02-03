@@ -37,12 +37,25 @@ export default function Navbar() {
           <Link href="#contact" className="hover:opacity-60 transition">Contact</Link>
           
           {/* Consistent Dark Button */}
-          <Link 
-            href="#contact" 
-            className="px-8 py-3 bg-[#1A1C18] text-white rounded-full shadow-lg hover:bg-[#3A3D39] transition-all duration-300 active:scale-95"
-          >
-            Book a Session
-          </Link>
+          <Link href="#contact" scroll={true}>
+            <button 
+                className="relative px-8 py-3 bg-[#102013] text-[#FFFEFA] rounded-full font-medium transition-transform duration-300 hover:scale-105 active:scale-95"
+                style={{
+                animation: 'forcePulse 2.5s infinite ease-in-out'
+                }}
+            >
+                Book a Session
+                
+                {/* This injects the animation rules directly into the page */}
+                <style dangerouslySetInnerHTML={{ __html: `
+                @keyframes forcePulse {
+                    0% { box-shadow: 0 0 0 0 rgba(58, 90, 64, 0.7); }
+                    50% { box-shadow: 0 0 25px 15px rgba(58, 90, 64, 0); }
+                    100% { box-shadow: 0 0 0 0 rgba(58, 90, 64, 0.7); }
+                }
+                `}} />
+            </button>
+            </Link>
         </div>
       </div>
     </nav>
