@@ -2,42 +2,59 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section className="min-h-screen pt-32 px-8 md:px-20 flex items-center relative overflow-hidden">
-      {/* Main Grid Container */}
-      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 lg:gap-12 items-center w-full">
+    <section className="min-h-screen pt-32 px-8 md:px-20 flex items-center relative overflow-hidden bg-transparent">
+      <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
         
-        {/* LEFT SIDE: Shifting the image towards the right (center of page) */}
-        <div className="flex justify-center md:justify-self-end">
-          <div className="relative w-full min-w-[300px] max-w-[340px] lg:max-w-[380px] aspect-[4/5] rounded-t-full overflow-hidden shadow-2xl border border-white/30">
+        {/* LEFT SIDE: Clean Portrait with Integrated Label */}
+        <div className="relative flex justify-center md:justify-end">
+          <div className="relative w-full max-w-[380px] aspect-[4/5] rounded-t-full overflow-hidden shadow-xl border border-white/20">
             <Image 
               src="/images/maya-portrait.jpg" 
               alt="Dr. Maya Reynolds" 
               fill 
-              className="object-cover"
+              className="object-cover" 
               priority
             />
+            
+            {/* Integrated Credential - Minimalist & Non-cluttered */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#1A1C18]/80 to-transparent p-8 pt-12">
+              <p className="text-white font-serif text-xl">
+                Dr. Maya Reynolds, <span className="italic text-sm">PsyD</span>
+              </p>
+              <p className="text-white/70 text-[9px] uppercase tracking-[0.2em] mt-1 font-medium">
+                Licensed Clinical Psychologist
+              </p>
+            </div>
           </div>
         </div>
 
-        {/* RIGHT SIDE: Text block stays naturally left-aligned to the grid line */}
-        <div className="flex flex-col items-start md:pl-4">
-          <span className="text-[#1A1C18] font-bold uppercase tracking-[0.3em] text-[10px] mb-6 block">
-            Psychology & Wellness
-          </span>
+        {/* RIGHT SIDE: Balanced Text block */}
+        <div className="max-w-md">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-[1px] bg-[#3A5A40]/40" />
+            <span className="text-[#3A5A40] font-bold uppercase tracking-[0.2em] text-[10px]">
+              Psychology & Wellness
+            </span>
+          </div>
           
-          <h1 className="text-4xl md:text-5xl lg:text-5xl font-serif text-[#1A1C18] leading-[1.2] mb-6">
+          <h1 className="text-5xl lg:text-6xl font-serif text-[#1A1C18] leading-[1.1] mb-8">
             Cultivating <br />
-            <span className="italic font-light">clarity</span> in the chaos.
+            <span className="italic font-light text-stone-500">clarity</span> in the chaos.
           </h1>
           
-          <p className="text-sm md:text-base text-[#1A1C18] leading-relaxed mb-10 font-light max-w-sm opacity-90">
-            Dr. Maya Reynolds provides evidence-based therapy for adults in Seattle, 
+          <p className="text-base text-[#1A1C18]/80 leading-relaxed mb-10 font-light">
+            Providing evidence-based therapy for adults in Seattle, 
             helping you navigate life's complexities with resilience and grace.
           </p>
 
-          <button className="px-10 py-4 bg-[#1A1C18] text-white rounded-full uppercase tracking-widest text-[10px] font-bold shadow-xl active:scale-95 transition-all duration-500 hover:bg-[#1A1C18] hover:shadow-[0_0_30px_5px_rgba(58,90,64,0.4)] hover:-translate-y-1">
-            Begin Your Journey →
+          <div className="flex items-center gap-8">
+            <button className="px-10 py-4 bg-[#1A1C18] text-white rounded-full uppercase tracking-widest text-[10px] font-bold shadow-lg transition-all hover:bg-[#3A5A40] hover:-translate-y-1">
+              Begin Your Journey
             </button>
+            <span className="hidden sm:block text-[9px] uppercase tracking-widest text-stone-400 font-semibold border-l border-stone-300 pl-6">
+              Seattle, WA & Virtual
+            </span>
+          </div>
         </div>
 
       </div> 
