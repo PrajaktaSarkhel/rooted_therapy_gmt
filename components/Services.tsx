@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 
 const services = [
   {
@@ -41,22 +42,27 @@ export default function Services() {
           {services.map((service, index) => (
             <div 
               key={index}
-              className="group relative overflow-hidden rounded-3xl bg-[#1A1C18] h-[450px] transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl"
+              tabIndex={0}
+              className="group relative overflow-hidden rounded-3xl bg-[#1A1C18] h-[450px] transition-all duration-500 
+                         hover:-translate-y-2 hover:shadow-2xl 
+                         active:scale-[0.98] focus:outline-none"
             >
-              {/* --- BACKGROUND IMAGE: Visible by default --- */}
+              {/* --- BACKGROUND IMAGE --- */}
               <div 
-                className="absolute inset-0 opacity-80 group-hover:opacity-60 transition-all duration-700 ease-in-out bg-cover bg-center grayscale-[20%] group-hover:grayscale-0 group-hover:scale-110 blur-0 group-hover:blur-[4px]"
+                className="absolute inset-0 opacity-80 transition-all duration-700 ease-in-out bg-cover bg-center grayscale-[20%] 
+                           group-hover:opacity-60 group-hover:grayscale-0 group-hover:scale-110 group-hover:blur-[4px]
+                           group-active:opacity-60 group-active:grayscale-0 group-active:scale-110 group-active:blur-[4px]"
                 style={{ backgroundImage: `url(${service.image})` }}
               />
 
-              {/* --- GRADIENT OVERLAY: Ensures text is always readable --- */}
+              {/* --- GRADIENT OVERLAY --- */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent z-10" />
 
               {/* --- CONTENT LAYER --- */}
               <div className="relative h-full p-10 flex flex-col justify-end z-20">
                 
-                {/* 1. Icon & Title: Always visible */}
-                <div className="transition-transform duration-500 group-hover:-translate-y-2">
+                {/* 1. Icon & Title */}
+                <div className="transition-transform duration-500 group-hover:-translate-y-2 group-active:-translate-y-2">
                    <div className="w-10 h-10 bg-white/10 backdrop-blur-md text-white rounded-full flex items-center justify-center mb-4 border border-white/20">
                     {service.icon}
                   </div>
@@ -65,16 +71,20 @@ export default function Services() {
                   </h3>
                 </div>
                 
-                {/* 2. Sliding Container: Hidden by default, rises on hover */}
-                <div className="max-h-0 opacity-0 group-hover:max-h-[150px] group-hover:opacity-100 transition-all duration-700 ease-in-out">
+                {/* 2. Sliding Container */}
+                <div className="max-h-0 opacity-0 transition-all duration-700 ease-in-out
+                                group-hover:max-h-[150px] group-hover:opacity-100 
+                                group-active:max-h-[150px] group-active:opacity-100">
                   <p className="text-stone-300 text-sm leading-relaxed mb-6 pt-2">
                     {service.description}
                   </p>
                   
                   <div className="pt-4 border-t border-white/20">
-                    <span className="text-[10px] font-bold uppercase tracking-widest text-white">
-                      Learn More →
-                    </span>
+                    <Link href="#contact" scroll={true} className="inline-block">
+                      <span className="text-[10px] font-bold uppercase tracking-widest text-white hover:text-[#A3B18A] transition-colors cursor-pointer">
+                        Learn More →
+                      </span>
+                    </Link>
                   </div>
                 </div>
 
